@@ -7,6 +7,7 @@ public class PlayerCameraController : MonoBehaviour
     public Camera playerCamera;
     public float mouseSensitivity = 2f;
     public float maxLookAngle = 50f;
+    public GameObject spotLight;
 
     // Crosshair
     public bool lockCursor = true;

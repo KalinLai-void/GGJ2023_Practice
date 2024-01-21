@@ -6,10 +6,14 @@ public class PalentSpawner : MonoBehaviour
 {
     public GameObject[] types;
     public float spawnPerSecs = 2.0f;
-    public int spawnNums;
+    public int spawnNums = 1;
 
     public float minScale = 1.0f;
     public float maxScale = 5.0f;
+
+    // fly settings
+    public float flySpeed = 10.0f;
+    public bool isHorizontalFly = true;
 
     private void Start()
     {
@@ -40,6 +44,15 @@ public class PalentSpawner : MonoBehaviour
             float scale = Random.Range(minScale, maxScale);
             Vector3 scaleV3 = new Vector3(scale, scale, scale);
             obj.transform.localScale = scaleV3;
+
+            Vector3 flyDirection;
+            if (isHorizontalFly) flyDirection = new Vector3(Random.Range(-180f, 180f),
+                                                            0,
+                                                            Random.Range(-180f, 180f));
+            else flyDirection = new Vector3(Random.Range(-180f, 180f),
+                                            Random.Range(-180f, 180f),
+                                            Random.Range(-180f, 180f));
+            obj.GetComponent<Rigidbody>().AddForce(flyDirection * flySpeed);
         }
     }
 }
