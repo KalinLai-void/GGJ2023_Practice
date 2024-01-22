@@ -53,6 +53,10 @@ public class PalentSpawner : MonoBehaviour
                                             Random.Range(-180f, 180f),
                                             Random.Range(-180f, 180f));
             obj.GetComponent<Rigidbody>().AddForce(flyDirection * flySpeed);
+            obj.GetComponent<MeshRenderer>().enabled = false;
+
+            // Enable Radar Point
+            obj.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
