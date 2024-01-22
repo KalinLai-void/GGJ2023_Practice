@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCameraController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    // Camera Settings
     public Camera playerCamera;
     public float mouseSensitivity = 2f;
     public float maxLookAngle = 50f;
@@ -15,16 +16,19 @@ public class PlayerCameraController : MonoBehaviour
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
-    void Start()
+    private void Start()
     {
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        if (lockCursor) Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame1
-    void Update()
+    private void Update()
+    {
+        ControlCamera();
+        Catch();
+    }
+
+    private void ControlCamera()
     {
         yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
         pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
@@ -34,5 +38,13 @@ public class PlayerCameraController : MonoBehaviour
 
         transform.localEulerAngles = new Vector3(0, yaw, 0);
         playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+    }
+
+    private void Catch()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("1");
+        }
     }
 }
