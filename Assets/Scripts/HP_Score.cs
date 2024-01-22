@@ -13,8 +13,9 @@ public class HP_Score : MonoBehaviour
     private int totalSecs = 0;
 
     // HP Setting
-    public Scrollbar HPBar;
+    public GameObject HPStone;
     public int totalHP = 100;
+    public int warningHP = 30;
     private int hp;
 
     private void Start()
@@ -49,9 +50,17 @@ public class HP_Score : MonoBehaviour
 
     private void UpdateHPUI()
     {
-        if (!HPBar) return;
+        if (!HPStone) return;
 
-        HPBar.size = (hp * 0.01f);
+        if (hp >= warningHP)
+        {
+            float newR = 128 + (127 * (hp - warningHP) / (totalHP - warningHP));
+            HPStone.GetComponent<MeshRenderer>().materials[0].color = new Color(newR, 0, 0);
+        }
+        else // blink
+        {
+
+        }
     }
 
     public void AddHP(int value) // can use negative integer value
