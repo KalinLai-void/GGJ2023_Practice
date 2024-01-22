@@ -6,7 +6,7 @@ public class Radar : MonoBehaviour
 {
     public GameObject center;
     public float radius;
-
+    public RenderTexture renderTexture;
 
     private void Start()
     {
@@ -21,9 +21,10 @@ public class Radar : MonoBehaviour
             if (Vector3.Distance(obj.transform.position, center.transform.position) > radius)
             {
                 // TO-DO: Destroy obj and loss hp
-                //Destroy(obj.transform.parent.gameObject);
+                Destroy(obj.transform.parent.gameObject);
             }
         }
+        renderTexture.Release();
     }
 
     GameObject[] FindGameObjectsInLayer(string layer)

@@ -61,9 +61,9 @@ public class PalentSpawner : MonoBehaviour
 
             // Radar Point
             obj.transform.GetChild(0).gameObject.SetActive(true);
-
             if (isPointSameScale)
             {
+                // retrospective adjustment, because radar point is the child of planet and its scale was set.
                 obj.transform.GetChild(0).localScale = new Vector3(
                     (1f / scale) * radarPointSize, 
                     (1f / scale) * radarPointSize, 
@@ -71,6 +71,7 @@ public class PalentSpawner : MonoBehaviour
             }
             else
             {
+                // let the radar point size normalize on radar, and each point's size follow the parent's size.
                 obj.transform.GetChild(0).localScale = new Vector3(
                     radarPointSize * 3f * scale, 
                     radarPointSize * 3f * scale, 
