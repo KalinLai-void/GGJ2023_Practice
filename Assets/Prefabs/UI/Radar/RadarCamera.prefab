@@ -110,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2469907853516779735}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -145,8 +145,8 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.83
-    y: -0.7
+    x: 0
+    y: 0
     width: 1
     height: 1
   near clip plane: 0.3
@@ -159,7 +159,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 192
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: bca303b5c3909544c80e6a912a99727a, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -183,3 +183,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {fileID: 0}
   radius: 100
+  renderTexture: {fileID: 8400000, guid: bca303b5c3909544c80e6a912a99727a, type: 2}
