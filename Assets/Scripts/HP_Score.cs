@@ -16,7 +16,10 @@ public class HP_Score : MonoBehaviour
     public GameObject HPStone;
     public int totalHP = 100;
     public int warningHP = 30;
+    public float blinkFrequencyBase = 0.1f;
+    public int lossHP_whenLossOne = -10;
     private int hp;
+    private bool isBlinking = false;
 
     private void Start()
     {
@@ -55,11 +58,37 @@ public class HP_Score : MonoBehaviour
         if (hp >= warningHP)
         {
             float newR = 128 + (127 * (hp - warningHP) / (totalHP - warningHP));
-            HPStone.GetComponent<MeshRenderer>().materials[0].color = new Color(newR, 0, 0);
+            Debug.Log("HP: " + hp + ", Color R: " + newR);
+            HPStone.GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new Color(newR / 255, 0, 0));
         }
         else // blink
         {
+            Debug.Log("HP: " + hp);
+            if (!isBlinking) StartCoroutine(HPStoneBlink());
+        }
+    }
 
+    private IEnumerator HPStoneBlink()
+    {
+        isBlinking = true;
+
+        HPStone.GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new Color(0.5f, 0, 0));
+        HPStone.GetComponent<MeshRenderer>().materials[0].EnableKeyword("_EMISSION");
+        while (isBlinking)
+        {
+            for (float i = 0f; i < 2f; i+=0.1f)
+            {
+                HPStone.GetComponent<MeshRenderer>().materials[0].SetColor(
+                    "_EmissionColor", new Color(0.5f, 0, 0) * i);
+                yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5));
+            }
+
+            for (float i = 2f; i > 0f; i-=0.1f)
+            {
+                HPStone.GetComponent<MeshRenderer>().materials[0].SetColor(
+                    "_EmissionColor", new Color(0.5f, 0, 0) * i);
+                yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5));
+            }
         }
     }
 

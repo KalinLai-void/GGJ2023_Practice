@@ -6,7 +6,10 @@ public class Radar : MonoBehaviour
 {
     public GameObject center;
     public float radius;
-    public RenderTexture renderTexture;
+    public RenderTexture radarRenderTexture;
+    public RenderTexture HPStoneRenderTexture;
+
+    private GameObject[] radarObjs;
 
     private void Start()
     {
@@ -15,16 +18,21 @@ public class Radar : MonoBehaviour
 
     private void Update()
     {
-        GameObject[] radarObjs = FindGameObjectsInLayer("Radar");
+        radarObjs = FindGameObjectsInLayer("Radar");
+        if (radarObjs == null) return;
+
         foreach(var obj in radarObjs)
         {
             if (Vector3.Distance(obj.transform.position, center.transform.position) > radius)
             {
                 Destroy(obj.transform.parent.gameObject); // destroy out of range's palnets
-                center.GetComponent<HP_Score>().AddHP(-1); // loss hp
+                center.GetComponent<HP_Score>().AddHP(
+                    center.GetComponent<HP_Score>().lossHP_whenLossOne
+                    ); // loss hp
             }
         }
-        renderTexture.Release();
+        radarRenderTexture.Release();
+        HPStoneRenderTexture.Release();
     }
 
     GameObject[] FindGameObjectsInLayer(string layer)

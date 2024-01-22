@@ -183,4 +183,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {fileID: 0}
   radius: 100
-  renderTexture: {fileID: 8400000, guid: bca303b5c3909544c80e6a912a99727a, type: 2}
+  radarRenderTexture: {fileID: 8400000, guid: bca303b5c3909544c80e6a912a99727a, type: 2}
+  HPStoneRenderTexture: {fileID: 8400000, guid: 33417dd598ab11743976a38cef20ef4b, type: 2}
