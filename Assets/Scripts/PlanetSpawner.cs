@@ -11,9 +11,13 @@ public class PalentSpawner : MonoBehaviour
     public float minScale = 1.0f;
     public float maxScale = 5.0f;
 
-    // fly settings
+    // Fly Settings
     public float flySpeed = 10.0f;
     public bool isHorizontalFly = true;
+
+    // Radar Settings
+    public bool isPointSameScale = true;
+    public float radarPointSize = 5f;
 
     private void Start()
     {
@@ -55,8 +59,23 @@ public class PalentSpawner : MonoBehaviour
             obj.GetComponent<Rigidbody>().AddForce(flyDirection * flySpeed);
             obj.GetComponent<MeshRenderer>().enabled = false;
 
-            // Enable Radar Point
+            // Radar Point
             obj.transform.GetChild(0).gameObject.SetActive(true);
+
+            if (isPointSameScale)
+            {
+                obj.transform.GetChild(0).localScale = new Vector3(
+                    (1f / scale) * radarPointSize, 
+                    (1f / scale) * radarPointSize, 
+                    (1f / scale) * radarPointSize);
+            }
+            else
+            {
+                obj.transform.GetChild(0).localScale = new Vector3(
+                    radarPointSize * 3f * scale, 
+                    radarPointSize * 3f * scale, 
+                    radarPointSize * 3f * scale);
+            }
         }
     }
 
