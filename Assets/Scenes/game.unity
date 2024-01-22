@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: maxLookAngle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4527739215383415723, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5099059964910275111, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
