@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
+    // Catch Settings
+    public float seeDist = 1000f;
+
     private void Start()
     {
         if (lockCursor) Cursor.lockState = CursorLockMode.Locked;
@@ -44,7 +47,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("1");
+            RaycastHit hit;
+
+            Debug.DrawRay(transform.position, transform.forward * seeDist);
+            if (Physics.Raycast(transform.position, transform.forward, out hit, seeDist))
+            {
+                Debug.Log("Touched: " + hit.collider.gameObject.name);
+                Destroy(hit.collider.gameObject);
+            }
         }
     }
 }

@@ -271,6 +271,10 @@ PrefabInstance:
       value: CenterPoint
       objectReference: {fileID: 0}
     - target: {fileID: 3117396300656676131, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: seeDist
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117396300656676131, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: maxLookAngle
       value: 0
       objectReference: {fileID: 0}
