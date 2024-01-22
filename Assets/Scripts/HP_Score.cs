@@ -9,7 +9,7 @@ public class HP_Score : MonoBehaviour
 
     // Timer Setting
     public TextMeshProUGUI timerText;
-    private int secs = 0;
+    private int totalSecs = 0;
 
     private void Start()
     {
@@ -26,14 +26,14 @@ public class HP_Score : MonoBehaviour
         while (!isGameOver)
         {
             yield return new WaitForSeconds(1f);
-            secs++;
+            totalSecs++;
         }
     }
 
     private void UpdateTimerUI()
     {
-        int mins = secs / 60;
-        secs %= 60;
+        int mins = totalSecs / 60;
+        int secs  = totalSecs % 60;
         timerText.text = mins.ToString("00") + ":" + secs.ToString("00");
     }
 }

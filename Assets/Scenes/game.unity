@@ -273,6 +273,10 @@ PrefabInstance:
       propertyPath: minScale
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6706475863763479284, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: isPointSameScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8127830883876781507, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: timerText
       value: 
