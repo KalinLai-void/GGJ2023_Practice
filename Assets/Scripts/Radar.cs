@@ -7,6 +7,12 @@ public class Radar : MonoBehaviour
     public GameObject center;
     public float radius;
 
+
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         GameObject[] radarObjs = FindGameObjectsInLayer("Radar");
@@ -15,7 +21,7 @@ public class Radar : MonoBehaviour
             if (Vector3.Distance(obj.transform.position, center.transform.position) > radius)
             {
                 // TO-DO: Destroy obj and loss hp
-                Destroy(obj.transform.parent.gameObject);
+                //Destroy(obj.transform.parent.gameObject);
             }
         }
     }
