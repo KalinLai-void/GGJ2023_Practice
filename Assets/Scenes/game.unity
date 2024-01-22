@@ -301,10 +301,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173735584322193986, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
-      propertyPath: m_Lightmapping
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173735584322193986, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
