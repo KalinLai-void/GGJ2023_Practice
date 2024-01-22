@@ -248,10 +248,24 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.25, y: 0.25, z: 0.04378471}
-  m_Center: {x: -0, y: 0, z: -0.73149824}
+  m_Size: {x: 0.25, y: 3.0770137, z: 0.04378479}
+  m_Center: {x: -0, y: 1.4135059, z: -0.73149824}
+--- !u!114 &1412442186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412442182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac74d8784ca48a547b6155392b243cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaying: 0
+  hitObjs_fromAim: {fileID: 0}
 --- !u!1001 &2120886401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,6 +428,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a4ee6920f9b6bb4a83de01f1cd32534, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1412442185}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a4ee6920f9b6bb4a83de01f1cd32534, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1412442186}
   m_SourcePrefab: {fileID: 100100000, guid: 9a4ee6920f9b6bb4a83de01f1cd32534, type: 3}
 --- !u!1 &1502283572154404073 stripped
 GameObject:
@@ -428,6 +445,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1149359907682276782, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2291900654965416129, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: m_Name
       value: CenterPoint
@@ -436,6 +457,14 @@ PrefabInstance:
       propertyPath: root
       value: 
       objectReference: {fileID: 1412442182}
+    - target: {fileID: 3117396300656676131, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: extendSpeed
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117396300656676131, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: returnSpeed
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 5099059964910275111, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -475,6 +504,14 @@ PrefabInstance:
     - target: {fileID: 5099059964910275111, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706475863763479284, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: maxScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706475863763479284, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: spawnPerSecs
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8127830883876781507, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: HPBar

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float mouseSensitivity = 2f;
     public float maxLookAngle = 50f;
     public GameObject spotLight;
+    public bool canControl = true;
 
     // Crosshair
     public bool lockCursor = true;
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
     // Catch Settings
     public GameObject root;
     public float seeDist = 1000f;
+    public float extendSpeed = 100f;
+    public float returnSpeed = 10f;
 
     private void Start()
     {
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     private void ControlCamera()
     {
+        if (!canControl) return;
+
         yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
         pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
 
@@ -46,8 +51,11 @@ public class PlayerController : MonoBehaviour
 
     private void Catch()
     {
+        if (!canControl) return;
+
         if (Input.GetMouseButtonDown(0))
         {
+            root.GetComponent<BoxCollider>().enabled = true;
             StartCoroutine(ExtendRoot());
 
             RaycastHit hit;
@@ -56,6 +64,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Selected: " + hit.collider.gameObject.name);
                 //Destroy(hit.collider.gameObject);
+                root.GetComponent<RootCatch>().hitObjs_fromAim = hit.collider.gameObject;
                 hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
@@ -63,16 +72,33 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ExtendRoot() // root extend anim
     {
-        while (root.transform.localPosition.z < 75 /*|| !root.GetComponent<Animator>().GetBool("canCatch")*/)
+        canControl = false;
+        while (root.transform.localPosition.z < 75)
         {
-            root.transform.localPosition += new Vector3(0, 0, 1);
-            yield return new WaitForSeconds(0.0001f);
-        }
+            if (root.GetComponent<Animator>().GetBool("canCatch")) break;
 
-        while (root.transform.localPosition.z > -75 /*|| root.GetComponent<Animator>().GetBool("canCatch")*/)
+            root.transform.localPosition += new Vector3(0, 0, 1);
+            yield return new WaitForSeconds(1 / extendSpeed);
+        }
+        root.GetComponent<Animator>().SetBool("canCatch", true);
+        root.GetComponent<BoxCollider>().enabled = false;
+    }
+
+    public IEnumerator ReturnRoot()
+    {
+        while (root.transform.localPosition.z > -75)
         {
             root.transform.localPosition -= new Vector3(0, 0, 1);
-            yield return new WaitForSeconds(0.0001f);
+            yield return new WaitForSeconds(1 / returnSpeed);
         }
+        root.GetComponent<RootCatch>().isPlaying = false;
+        root.GetComponent<Animator>().SetBool("canCatch", false);
+        
+        for (int i = 2; i < root.transform.childCount; i++) // Avoid Bug, so destroy other all un-need obj
+        { // because 0 and 1 is model's structure
+            Destroy(root.transform.GetChild(i).gameObject); 
+        }
+
+        canControl = true;
     }
 }

@@ -60,7 +60,6 @@ public class PalentSpawner : MonoBehaviour
             obj.GetComponent<MeshRenderer>().enabled = false;
 
             // Radar Point
-            obj.transform.GetChild(0).gameObject.SetActive(true);
             if (isPointSameScale)
             {
                 // retrospective adjustment, because radar point is the child of planet and its scale was set.
@@ -84,6 +83,7 @@ public class PalentSpawner : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Target"))
         {
+            other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             other.gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
     }
