@@ -43,13 +43,17 @@ public class HP_Score : MonoBehaviour
         }
     }
 
+    private string GetTimerMinAndSec_FormatString()
+    {
+        int mins = totalSecs / 60;
+        int secs = totalSecs % 60;
+        return mins.ToString("00") + ":" + secs.ToString("00");
+    }
+
     private void UpdateTimerUI()
     {
         if (!timerText) return;
-
-        int mins = totalSecs / 60;
-        int secs  = totalSecs % 60;
-        timerText.text = mins.ToString("00") + ":" + secs.ToString("00");
+        timerText.text = GetTimerMinAndSec_FormatString();
     }
 
     private void UpdateHPUI()
@@ -58,6 +62,7 @@ public class HP_Score : MonoBehaviour
 
         if (hp >= warningHP)
         {
+            // if hp more and more lower, the hp UI's color is darker
             float newR = 128 + (127 * (hp - warningHP) / (totalHP - warningHP));
             Debug.Log("HP: " + hp + ", Color R: " + newR);
             HPStone.GetComponent<MeshRenderer>().materials[0].DisableKeyword("_EMISSION");
@@ -70,7 +75,7 @@ public class HP_Score : MonoBehaviour
         }
     }
 
-    private IEnumerator HPStoneBlink()
+    private IEnumerator HPStoneBlink() // blinking using emission's intensity
     {
         isBlinking = true;
 
@@ -83,13 +88,15 @@ public class HP_Score : MonoBehaviour
                 HPStone.GetComponent<MeshRenderer>().materials[0].SetColor(
                     "_EmissionColor", new Color(0.5f, 0, 0) * i);
                 yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5));
+                // frequency accroding to hp, lower hp's frequency is higher
             }
 
             for (float i = 2f; i > 0f; i-=0.1f)
             {
                 HPStone.GetComponent<MeshRenderer>().materials[0].SetColor(
                     "_EmissionColor", new Color(0.5f, 0, 0) * i);
-                yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5));
+                yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5)); 
+                // frequency accroding to hp, lower hp's frequency is higher
             }
         }
         isBlinking = false;
