@@ -131,8 +131,9 @@ public class HP_Score : MonoBehaviour
             GetComponent<PlayerController>().canControl = false;
             GetComponent<PlanetSpawner>().canSpawn = false;
 
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None; // show mouse cursor
             gameOverUI.gameObject.SetActive(true);
+            timerText.gameObject.SetActive(false); // hide HUD's Timer
             resultTimeText.text = GetTimerMinAndSec_FormatString(1);
         }
     }
