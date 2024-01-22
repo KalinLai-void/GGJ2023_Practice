@@ -53,6 +53,12 @@ public class PalentSpawner : MonoBehaviour
                                             Random.Range(-180f, 180f),
                                             Random.Range(-180f, 180f));
             obj.GetComponent<Rigidbody>().AddForce(flyDirection * flySpeed);
+            
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name.Contains("¬P²y"))
     }
 }
