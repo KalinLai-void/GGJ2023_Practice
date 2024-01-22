@@ -125,12 +125,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameOver: 0
+  gameOverUI: {fileID: 0}
+  resultTimeText: {fileID: 0}
   timerText: {fileID: 0}
   HPStone: {fileID: 0}
   totalHP: 100
   warningHP: 30
   blinkFrequencyBase: 1
-  lossHP_whenLossOne: -1
+  lossHP_whenLossOne: -10
 --- !u!1 &3463547095542093199
 GameObject:
   m_ObjectHideFlags: 0

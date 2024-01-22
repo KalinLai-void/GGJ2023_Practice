@@ -6,7 +6,10 @@ using TMPro;
 
 public class HP_Score : MonoBehaviour
 {
+    // Game Over
     public bool isGameOver = false;
+    public Canvas gameOverUI;
+    public TextMeshProUGUI resultTimeText;
 
     // Timer Setting
     public TextMeshProUGUI timerText;
@@ -43,11 +46,20 @@ public class HP_Score : MonoBehaviour
         }
     }
 
-    private string GetTimerMinAndSec_FormatString()
+    private string GetTimerMinAndSec_FormatString(int type=0)
     {
         int mins = totalSecs / 60;
         int secs = totalSecs % 60;
-        return mins.ToString("00") + ":" + secs.ToString("00");
+
+        switch (type)
+        {
+            case 0:
+                return mins.ToString("00") + ":" + secs.ToString("00");
+            case 1:
+                return mins.ToString("00") + " m " + secs.ToString("00") + " s";
+            default:
+                return string.Empty;
+        }
     }
 
     private void UpdateTimerUI()
@@ -118,6 +130,10 @@ public class HP_Score : MonoBehaviour
         {
             GetComponent<PlayerController>().canControl = false;
             GetComponent<PlanetSpawner>().canSpawn = false;
+
+            Cursor.lockState = CursorLockMode.None;
+            gameOverUI.gameObject.SetActive(true);
+            resultTimeText.text = GetTimerMinAndSec_FormatString(1);
         }
     }
 }
