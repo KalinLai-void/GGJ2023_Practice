@@ -31,6 +31,7 @@ public class HP_Score : MonoBehaviour
     {
         UpdateTimerUI();
         UpdateHPUI();
+        CheckGameOver();
     }
 
     private IEnumerator GameTimer()
@@ -59,6 +60,7 @@ public class HP_Score : MonoBehaviour
         {
             float newR = 128 + (127 * (hp - warningHP) / (totalHP - warningHP));
             Debug.Log("HP: " + hp + ", Color R: " + newR);
+            HPStone.GetComponent<MeshRenderer>().materials[0].DisableKeyword("_EMISSION");
             HPStone.GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new Color(newR / 255, 0, 0));
         }
         else // blink
@@ -74,7 +76,7 @@ public class HP_Score : MonoBehaviour
 
         HPStone.GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new Color(0.5f, 0, 0));
         HPStone.GetComponent<MeshRenderer>().materials[0].EnableKeyword("_EMISSION");
-        while (isBlinking)
+        while (isBlinking && !isGameOver)
         {
             for (float i = 0f; i < 2f; i+=0.1f)
             {
@@ -90,6 +92,7 @@ public class HP_Score : MonoBehaviour
                 yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5));
             }
         }
+        isBlinking = false;
     }
 
     public void AddHP(int value) // can use negative integer value
@@ -99,6 +102,15 @@ public class HP_Score : MonoBehaviour
         {
             hp = 0;
             isGameOver = true;
+        }
+    }
+
+    private void CheckGameOver()
+    {
+        if (isGameOver)
+        {
+            GetComponent<PlayerController>().canControl = false;
+            GetComponent<PlanetSpawner>().canSpawn = false;
         }
     }
 }

@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Radar : MonoBehaviour
+public class RadarCameraController : MonoBehaviour
 {
     public GameObject center;
     public float radius;
-    public RenderTexture radarRenderTexture;
-    public RenderTexture HPStoneRenderTexture;
 
     private GameObject[] radarObjs;
 
@@ -31,8 +29,7 @@ public class Radar : MonoBehaviour
                     ); // loss hp
             }
         }
-        radarRenderTexture.Release();
-        HPStoneRenderTexture.Release();
+        GetComponent<Camera>().targetTexture.Release();
     }
 
     GameObject[] FindGameObjectsInLayer(string layer)

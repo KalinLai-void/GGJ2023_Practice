@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PalentSpawner : MonoBehaviour
+public class PlanetSpawner : MonoBehaviour
 {
+    public bool canSpawn = true; 
+
     public GameObject[] types;
     public float spawnPerSecs = 2.0f;
     public int spawnNums = 1;
@@ -26,7 +28,7 @@ public class PalentSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Timers.IsTimerFinished("SpawnTimer")) Spawn();
+        if (Timers.IsTimerFinished("SpawnTimer") && canSpawn) Spawn();
     }
 
     private GameObject GetRandomType()

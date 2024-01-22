@@ -127,7 +127,7 @@ Camera:
   m_GameObject: {fileID: 2469907853516779735}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -183,5 +183,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {fileID: 0}
   radius: 100
-  radarRenderTexture: {fileID: 8400000, guid: bca303b5c3909544c80e6a912a99727a, type: 2}
-  HPStoneRenderTexture: {fileID: 8400000, guid: 33417dd598ab11743976a38cef20ef4b, type: 2}

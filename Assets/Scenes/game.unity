@@ -189,6 +189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RadarCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 4427055890414126737, guid: 0da5391ad49a4aa4b9c373e32fddbfe6, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5004704480378358016, guid: 0da5391ad49a4aa4b9c373e32fddbfe6, type: 3}
       propertyPath: center
       value: 
@@ -255,6 +259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CenterPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4527739215383415723, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
+      propertyPath: m_Depth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5099059964910275111, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -307,10 +315,6 @@ PrefabInstance:
       propertyPath: blinkFrequencyBase
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8127830883876781507, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
-      propertyPath: lossHP_whenLossOne
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -325,8 +329,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4022592684522912142, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
-      propertyPath: orthographic
-      value: 1
+      propertyPath: m_Depth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022592684522912142, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4251431353211126129, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
       propertyPath: m_LocalPosition.x
@@ -492,5 +500,5 @@ SceneRoots:
   - {fileID: 1929194019021254936}
   - {fileID: 6250442989920205366}
   - {fileID: 967432631}
-  - {fileID: 370972189}
   - {fileID: 4793278997927789336}
+  - {fileID: 370972189}
