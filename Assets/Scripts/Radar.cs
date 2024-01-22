@@ -20,8 +20,8 @@ public class Radar : MonoBehaviour
         {
             if (Vector3.Distance(obj.transform.position, center.transform.position) > radius)
             {
-                // TO-DO: Destroy obj and loss hp
-                Destroy(obj.transform.parent.gameObject);
+                Destroy(obj.transform.parent.gameObject); // destroy out of range's palnets
+                center.GetComponent<HP_Score>().AddHP(-1); // loss hp
             }
         }
         renderTexture.Release();

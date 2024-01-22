@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private float pitch = 0.0f;
 
     // Catch Settings
+    public GameObject root;
     public float seeDist = 1000f;
 
     private void Start()
@@ -47,14 +48,31 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
+            StartCoroutine(ExtendRoot());
 
+            RaycastHit hit;
             Debug.DrawRay(transform.position, transform.forward * seeDist);
             if (Physics.Raycast(transform.position, transform.forward, out hit, seeDist))
             {
-                Debug.Log("Touched: " + hit.collider.gameObject.name);
-                Destroy(hit.collider.gameObject);
+                Debug.Log("Selected: " + hit.collider.gameObject.name);
+                //Destroy(hit.collider.gameObject);
+                hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
+        }
+    }
+
+    private IEnumerator ExtendRoot() // root extend anim
+    {
+        while (root.transform.localPosition.z < 75 /*|| !root.GetComponent<Animator>().GetBool("canCatch")*/)
+        {
+            root.transform.localPosition += new Vector3(0, 0, 1);
+            yield return new WaitForSeconds(0.0001f);
+        }
+
+        while (root.transform.localPosition.z > -75 /*|| root.GetComponent<Animator>().GetBool("canCatch")*/)
+        {
+            root.transform.localPosition -= new Vector3(0, 0, 1);
+            yield return new WaitForSeconds(0.0001f);
         }
     }
 }

@@ -120,6 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   timerText: {fileID: 0}
+  HPBar: {fileID: 0}
+  totalHP: 100
 --- !u!1 &3463547095542093199
 GameObject:
   m_ObjectHideFlags: 0
