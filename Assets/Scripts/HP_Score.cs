@@ -98,7 +98,7 @@ public class HP_Score : MonoBehaviour
             for (float i = 0f; i < 2f; i+=0.1f)
             {
                 HPStone.GetComponent<MeshRenderer>().materials[0].SetColor(
-                    "_EmissionColor", new Color(0.5f, 0, 0) * i);
+                    "_EmissionColor", new Color(0.5f, 0, 0, 0) * Mathf.Pow(2f, i));
                 yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5));
                 // frequency accroding to hp, lower hp's frequency is higher
             }
@@ -106,7 +106,7 @@ public class HP_Score : MonoBehaviour
             for (float i = 2f; i > 0f; i-=0.1f)
             {
                 HPStone.GetComponent<MeshRenderer>().materials[0].SetColor(
-                    "_EmissionColor", new Color(0.5f, 0, 0) * i);
+                    "_EmissionColor", new Color(0.5f, 0, 0, 0) * Mathf.Pow(2f, i));
                 yield return new WaitForSeconds(blinkFrequencyBase / ((warningHP - hp) * 5)); 
                 // frequency accroding to hp, lower hp's frequency is higher
             }
