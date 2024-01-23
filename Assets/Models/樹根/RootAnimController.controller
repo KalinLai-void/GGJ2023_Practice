@@ -112,8 +112,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u6372\u8D77"
-  m_Speed: 2
+  m_Name: catch
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7959349216391279499}
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -6109305179673514810, guid: 9a4ee6920f9b6bb4a83de01f1cd32534, type: 3}
+  m_Motion: {fileID: 7400000, guid: 03b9dbf70c1282640bd63a835d8cac49, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -22,10 +22,12 @@ public class PlayerController : MonoBehaviour
     public float seeDist = 1000f;
     public float extendSpeed = 100f;
     public float returnSpeed = 10f;
+    private Vector3 rootOriPos;
 
     private void Start()
     {
         if (lockCursor) Cursor.lockState = CursorLockMode.Locked;
+        rootOriPos = root.transform.localPosition;
     }
 
     // Update is called once per frame1
@@ -73,7 +75,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator ExtendRoot() // root extend anim
     {
         canControl = false;
-        while (root.transform.localPosition.z < 75)
+        while (root.transform.localPosition.z <= 0)
         {
             if (root.GetComponent<Animator>().GetBool("canCatch")) break;
 
@@ -86,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator ReturnRoot()
     {
-        while (root.transform.localPosition.z > -75)
+        while (root.transform.localPosition.z >= rootOriPos.z)
         {
             root.transform.localPosition -= new Vector3(0, 0, 1);
             yield return new WaitForSeconds(1 / returnSpeed);

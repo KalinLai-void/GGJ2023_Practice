@@ -9,7 +9,7 @@ public class RootCatch : MonoBehaviour
 
     private void Update()
     {
-        if ((GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("±²°_")
+        if ((GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("catch")
             && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) 
             && GetComponent<Animator>().GetBool("canCatch") 
             && !transform.parent.GetComponent<PlayerController>().canControl
