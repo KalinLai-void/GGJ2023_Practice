@@ -10,6 +10,8 @@ public class HP_Score : MonoBehaviour
     public bool isGameOver = false;
     public Canvas gameOverUI;
     public TextMeshProUGUI resultTimeText;
+    public TextMeshProUGUI countText;
+    public int planetsCount = 0;
 
     // Timer Setting
     public TextMeshProUGUI timerText;
@@ -135,6 +137,7 @@ public class HP_Score : MonoBehaviour
             gameOverUI.gameObject.SetActive(true);
             timerText.gameObject.SetActive(false); // hide HUD's Timer
             resultTimeText.text = GetTimerMinAndSec_FormatString(1);
+            countText.text = planetsCount.ToString();
         }
     }
 }

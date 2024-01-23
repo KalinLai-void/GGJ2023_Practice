@@ -98,7 +98,8 @@ public class PlayerController : MonoBehaviour
         
         for (int i = 2; i < root.transform.childCount; i++) // Avoid Bug, so destroy other all un-need obj
         { // because 0 and 1 is model's structure
-            Destroy(root.transform.GetChild(i).gameObject); 
+            Destroy(root.transform.GetChild(i).gameObject);
+            GetComponent<HP_Score>().planetsCount++;
         }
 
         canControl = true;
