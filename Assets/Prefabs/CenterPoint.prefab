@@ -83,8 +83,8 @@ MonoBehaviour:
   - {fileID: 6573137446095290097, guid: da3010a7ed6c29147bd7e975c4bf08d3, type: 3}
   - {fileID: 4302029527988208321, guid: 09b6a106aa2b7e049b7041398a18f8d1, type: 3}
   - {fileID: 5618758872837557564, guid: e238a56ed7710d74c88ace40b686e8b1, type: 3}
-  spawnPerSecs: 2
-  spawnNums: 3
+  spawnPerSecs: 5
+  spawnNums: 2
   minScale: 0.1
   maxScale: 5
   flySpeed: 5
@@ -130,9 +130,9 @@ MonoBehaviour:
   timerText: {fileID: 0}
   HPStone: {fileID: 0}
   totalHP: 100
-  warningHP: 30
+  warningHP: 90
   blinkFrequencyBase: 1
-  lossHP_whenLossOne: -10
+  lossHP_whenLossOne: -5
 --- !u!1 &3463547095542093199
 GameObject:
   m_ObjectHideFlags: 0
