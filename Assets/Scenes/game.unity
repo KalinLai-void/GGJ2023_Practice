@@ -895,33 +895,19 @@ PrefabInstance:
       value: HPStoneCamera
       objectReference: {fileID: 0}
     - target: {fileID: 6296453047627307645, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
-<<<<<<< HEAD
       propertyPath: m_TagString
       value: Untagged
-=======
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296453047627307645, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
->>>>>>> d462e4a3dc02ea04e3cb6c7ac8e0fe31d186fc97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6296453047627307645, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
-<<<<<<< HEAD
       insertIndex: 1
       addedObject: {fileID: 557000586}
     - targetCorrespondingSourceObject: {fileID: 6296453047627307645, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 557000587}
-=======
-      insertIndex: -1
-      addedObject: {fileID: 766657259}
->>>>>>> d462e4a3dc02ea04e3cb6c7ac8e0fe31d186fc97
   m_SourcePrefab: {fileID: 100100000, guid: dcbf08ecd69c6f84c90e4f4552dfec53, type: 3}
 --- !u!1001 &6250442989920205366
 PrefabInstance:
