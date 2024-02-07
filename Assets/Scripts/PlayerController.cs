@@ -79,8 +79,9 @@ public class PlayerController : MonoBehaviour
         {
             if (root.GetComponent<Animator>().GetBool("canCatch")) break;
 
-            root.transform.localPosition += new Vector3(0, 0, 1);
-            yield return new WaitForSeconds(1 / extendSpeed);
+            float moveDistance = extendSpeed * Time.deltaTime;
+            root.transform.localPosition += new Vector3(0, 0, moveDistance);
+            yield return null;
         }
         root.GetComponent<Animator>().SetBool("canCatch", true);
         root.GetComponent<BoxCollider>().enabled = false;
@@ -90,8 +91,9 @@ public class PlayerController : MonoBehaviour
     {
         while (root.transform.localPosition.z >= rootOriPos.z)
         {
-            root.transform.localPosition -= new Vector3(0, 0, 1);
-            yield return new WaitForSeconds(1 / returnSpeed);
+            float moveDistance = returnSpeed * Time.deltaTime;
+            root.transform.localPosition -= new Vector3(0, 0, moveDistance);
+            yield return null;
         }
         root.GetComponent<RootCatch>().isPlaying = false;
         root.GetComponent<Animator>().SetBool("canCatch", false);

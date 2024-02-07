@@ -467,11 +467,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3117396300656676131, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: extendSpeed
-      value: 5000
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3117396300656676131, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: returnSpeed
-      value: 8000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5099059964910275111, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 6756143910318130938}
     - target: {fileID: 8127830883876781507, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: warningHP
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 8127830883876781507, guid: a2ef0c1aa84e0c94b9674d926cf6e13b, type: 3}
       propertyPath: gameOverUI
