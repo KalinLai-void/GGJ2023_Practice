@@ -19,6 +19,7 @@ public class HP_Score : MonoBehaviour
 
     // HP Setting
     public GameObject HPStone;
+    public TextMeshProUGUI HPText;
     public int totalHP = 100;
     public int warningHP = 30;
     public float blinkFrequencyBase = 0.1f;
@@ -87,6 +88,7 @@ public class HP_Score : MonoBehaviour
             Debug.Log("HP: " + hp);
             if (!isBlinking) StartCoroutine(HPStoneBlink());
         }
+        HPText.text = hp.ToString();
     }
 
     private IEnumerator HPStoneBlink() // blinking using emission's intensity
